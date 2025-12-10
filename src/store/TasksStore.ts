@@ -1,8 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { scheduleNotification } from "../notifications";
-import { Task } from "../typings/Task";
+import { scheduleNotification } from "../utils/notifications";
+import { Task } from "@typings/Task";
 import { deleteFsTask, updateFsTask, writeFsTask } from "@services/firestoreService";
 
 interface TasksState {
