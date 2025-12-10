@@ -1,6 +1,6 @@
-import { View, StyleSheet, Button } from "react-native";
-import TasksList from "../../features/tasks/TasksList";
-import TasksCalendar from "../../TasksCalendar";
+import { View, StyleSheet } from "react-native";
+import TasksList from "features/tasks/TasksList";
+import TasksCalendar from "../../components/ui/TasksCalendar";
 import { getAuth, signOut } from "@react-native-firebase/auth";
 export default function index() {
   return (

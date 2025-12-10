@@ -1,4 +1,4 @@
-import PrimaryButton from "components/PrimaryButton";
+import PrimaryButton from "components/shared/PrimaryButton";
 type SaveTaskButtonProps = {
   onPress: () => void;
 };

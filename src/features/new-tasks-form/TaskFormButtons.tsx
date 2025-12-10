@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import SecondaryButton from "components/SecondaryButton";
-import PrimaryButton from "components/PrimaryButton";
+import SecondaryButton from "components/shared/SecondaryButton";
+import PrimaryButton from "components/shared/PrimaryButton";
 
 type TaskButtonsProps = {
   handleAdd: () => void;

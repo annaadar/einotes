@@ -1,4 +1,4 @@
-import { buttonStyles, primaryButton, secondaryButton } from "@constants/styles";
+import { buttonStyles, primaryButton } from "@constants/styles";
 import { TouchableOpacity, Text, StyleProp, ViewStyle } from "react-native";
 
 type SecondaryButtonProps = {
