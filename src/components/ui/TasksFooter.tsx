@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NewTaskModal from "../new-tasks-form/NewTaskModal";
+import NewTaskModal from "../modals/NewTaskModal";
 import AddTaskCard from "./AddTaskCard";
 
 export default function TasksFooter() {

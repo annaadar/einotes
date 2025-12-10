@@ -1,8 +1,8 @@
 import { FlatList, ListRenderItemInfo } from "react-native";
 import useFilteredTasks from "@hooks/useFilteredTasks";
-import TasksFooter from "../tasks-footer/TasksFooter";
+import TasksFooter from "../ui/TasksFooter";
 import { Task } from "@typings/Task";
-import TaskPreviewCard from "./TaskPreviewCard";
+import TaskPreviewCard from "../ui/TaskPreviewCard";
 
 export default function TasksList() {
   const filteredTasks = useFilteredTasks();

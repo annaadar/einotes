@@ -3,8 +3,8 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { colors } from "@constants/colors";
 import { elevatedStyle } from "@constants/styles";
 import { type Task } from "@typings/Task";
-import DeleteButton from "./DeleteButton";
-import TaskInfoModal from "./TaskInfoModal";
+import DeleteButton from "./buttons/DeleteButton";
+import TaskInfoModal from "../modals/TaskInfoModal";
 
 type TaskCardProps = {
   children: React.ReactNode;

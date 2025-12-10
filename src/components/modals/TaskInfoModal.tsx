@@ -2,7 +2,7 @@ import { Modal, StyleSheet, TextInput, View } from "react-native";
 import { elevatedStyle } from "@constants/styles";
 import useTaskModal from "@hooks/useTaskModal";
 import { Task } from "@typings/Task";
-import SaveTaskButton from "./SaveTaskButton";
+import SaveTaskButton from "../ui/buttons/SaveTaskButton"
 type TaskModalProps = {
   visible: boolean;
   onClose: () => void;

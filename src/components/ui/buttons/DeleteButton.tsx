@@ -1,5 +1,5 @@
 import { FontAwesome } from "@expo/vector-icons";
-import useTasksStore from "../../store/TasksStore";
+import useTasksStore from "@store/TasksStore";
 import { Task } from "@typings/Task";
 
 export default function DeleteButton({ taskId, task }: { taskId: string; task: Task }) {

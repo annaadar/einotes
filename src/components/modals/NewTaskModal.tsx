@@ -3,7 +3,7 @@ import { Modal, StyleSheet, TextInput, View } from "react-native";
 import { colors } from "@constants/colors";
 import { elevatedStyle } from "@constants/styles";
 import useNewTaskForm from "@hooks/useNewTaskForm";
-import TaskFormButtons from "./TaskFormButtons";
+import TaskFormButtons from "../ui/buttons/TaskFormButtons";
 
 export default function NewTaskModal({
   visible,
