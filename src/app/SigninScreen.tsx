@@ -23,6 +23,7 @@ export default function SigninScreen() {
         color={GoogleSigninButton.Color.Light}
         onPress={onSignin}
         disabled={loading}
+        style={{ alignSelf: "center" }}
       />
       {loading && <ActivityIndicator></ActivityIndicator>}
     </View>
@@ -31,7 +32,6 @@ export default function SigninScreen() {
 const styles = StyleSheet.create({
   ScreenContainer: {
     justifyContent: "center",
-    alignItems: "center",
     flex: 1,
     gap: "5%",
   },

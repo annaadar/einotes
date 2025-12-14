@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     color: "#611515ff",
     textShadowColor: "#dcc2baff",
-    textShadowOffset: { width: 0, height: 3 },
+    textShadowOffset: { width: 1, height: 3 },
     textShadowRadius: 0.3,
   },
 });
