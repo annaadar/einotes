@@ -3,7 +3,12 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { scheduleNotification } from "../utils/notifications";
 import { Task } from "@typings/Task";
-import { deleteFsTask, updateFsTask, writeFsTask } from "@services/firestoreService";
+import {
+  deleteFsTask,
+  getFsTasks,
+  updateFsTask,
+  writeFsTask,
+} from "@services/firestoreService";
 
 interface TasksState {
   tasks: Task[];
@@ -11,6 +16,7 @@ interface TasksState {
   updateTask: (task: Task) => void;
   taskedDates: Map<string, number>;
   deleteTask: (taskId: string, task: Task) => void;
+  retrieveTasks: () => void;
 }
 
 const useTasksStore = create<TasksState>()(
@@ -73,6 +79,15 @@ const useTasksStore = create<TasksState>()(
               ),
             };
           });
+        },
+        retrieveTasks: async () => {
+          const snapshot = await getFsTasks();
+          const tasks = snapshot.docs.map((doc) => {
+            const task = doc.data() as Task;
+            _addDate(task.taskDate.dateString, task); //configure metadata
+            return task;
+          });
+          set({ tasks: tasks });
         },
       };
     },
