@@ -9,12 +9,14 @@ import useTasksStore from "@store/TasksStore";
 
 type AuthState = {
   isSignedIn: boolean;
+  isLoading: boolean;
   fbSignIn: () => Promise<FirebaseAuthTypes.UserCredential | null>;
   fbSignOut: () => Promise<void>;
 };
 
 export const AuthContext = createContext<AuthState>({
   isSignedIn: false,
+  isLoading: true,
   fbSignIn: async () => {
     return null;
   },
@@ -23,15 +25,15 @@ export const AuthContext = createContext<AuthState>({
 export function AuthProvider({ children }: PropsWithChildren) {
   const router = useRouter();
   const [isSignedIn, setIsSignedIn] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const retrieveTasks = useTasksStore((state) => state.retrieveTasks);
 
   useEffect(() => {
     const authState = getAuth().currentUser;
     if (authState) {
       setIsSignedIn(true);
-    } else {
-      setIsSignedIn(false);
     }
+    setIsLoading(false);
     GoogleSignin.configure({
       webClientId: process.env.EXPO_PUBLIC_WEB_CLIENT_ID,
     });
@@ -56,7 +58,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
   };
 
   return (
-    <AuthContext.Provider value={{ isSignedIn, fbSignIn, fbSignOut }}>
+    <AuthContext.Provider value={{ isSignedIn, isLoading, fbSignIn, fbSignOut }}>
       {children}
     </AuthContext.Provider>
   );
