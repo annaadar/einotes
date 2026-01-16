@@ -13,7 +13,12 @@ export default {
     },
     ios: {
       supportsTablet: true,
-      googleServicesFile: process.env.GOOGLE_SERVICES_INFO_PLIST ?? "GoogleService-info.plist",
+      googleServicesFile:
+        process.env.GOOGLE_SERVICES_INFO_PLIST ?? "GoogleService-info.plist",
+      bundleIdentifier: "com.annaad.einotes",
+      infoPlist: {
+        ITSAppUsesNonExemptEncryption: false,
+      },
     },
     plugins: [
       "@react-native-firebase/app",
@@ -29,7 +34,7 @@ export default {
       package: "com.annaad.einotes",
       edgeToEdgeEnabled: true,
       predictiveBackGestureEnabled: false,
-      googleServicesFile:  process.env.GOOGLE_SERVICES_JSON ?? './google-services.json',
+      googleServicesFile: process.env.GOOGLE_SERVICES_JSON ?? "./google-services.json",
     },
     web: {
       favicon: "./assets/favicon.png",
