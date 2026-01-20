@@ -11,10 +11,10 @@ export default function TasksList() {
   };
   return (
     <FlatList
-      style={{ flex: 3 }}
       data={filteredTasks}
       renderItem={renderTaskCard}
       ListFooterComponent={TasksFooter}
+      scrollEnabled={false}
     ></FlatList>
   );
 }

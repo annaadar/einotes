@@ -1,18 +1,40 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import TasksList from "components/layout/TasksList";
 import TasksCalendar from "components/ui/TasksCalendar";
-import { getAuth, signOut } from "@react-native-firebase/auth";
 export default function index() {
   return (
     <View style={styles.container}>
-      <View style={{ flex: 1.25 }}>
-        <TasksCalendar />
-        {/* <Button title='signout' onPress={()=>signOut(getAuth())}></Button> */}
-      </View>
-      <TasksList />
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.calendarWrapper}>
+          <TasksCalendar />
+        </View>
+
+        <View style={styles.listWrapper}>
+          <TasksList />
+        </View>
+      </ScrollView>
     </View>
   );
 }
+
 const styles = StyleSheet.create({
-  container: { flexDirection: "column", flex: 1, gap: 50, backgroundColor: "#efe7e7ff" },
+  scrollContent: {
+    flexGrow: 1,
+    gap: 20,
+  },
+  calendarWrapper: {
+    height: 430,
+    width: "100%",
+    paddingHorizontal: 10,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#efe7e7ff",
+  },
+  listWrapper: {
+    flex: 1,
+  },
 });
