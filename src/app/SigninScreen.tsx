@@ -12,11 +12,9 @@ export default function SigninScreen() {
   const onSignin = async () => {
     try {
       await fbSignIn();
-    }
-    catch (err) {
+    } catch (err) {
       console.error("Error during sign-in:", err);
-    }
-     finally {
+    } finally {
       console.log("sign-in flow complete");
     }
   };
@@ -34,7 +32,7 @@ export default function SigninScreen() {
         color={GoogleSigninButton.Color.Light}
         onPress={onSignin}
         disabled={isLoading}
-        style={{ alignSelf: "center" }}
+        style={styles.googleButton}
       />
       {isLoading && <ActivityIndicator></ActivityIndicator>}
     </View>
@@ -45,5 +43,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flex: 1,
     gap: "5%",
+    paddingHorizontal: 10,
+    backgroundColor: "#efe7e7ff",
+  },
+  googleButton: {
+    alignSelf: "center",
+    width: "100%",
+    height: 65,
   },
 });
