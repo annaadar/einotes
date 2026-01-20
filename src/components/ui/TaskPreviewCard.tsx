@@ -36,14 +36,15 @@ export default function TaskPreviewCard({ children, task }: TaskCardProps) {
 const styles = StyleSheet.create({
   taskContainer: {
     backgroundColor: "white",
-    padding: "8%",
-    borderRadius: 20,
+    padding: "7%",
+    borderRadius: 25,
     borderColor: colors.lightPink,
-    borderWidth: 3,
+    borderWidth: 4,
     margin: 6,
+    marginHorizontal:13,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
   },
-  taskText: { fontWeight: "bold", color: colors.grayPink },
+  taskText: { fontWeight: "500", color: colors.grayPink },
 });
