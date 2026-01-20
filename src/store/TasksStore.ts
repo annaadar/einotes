@@ -25,11 +25,11 @@ const useTasksStore = create<TasksState>()(
       const _addDate = (date: string, task: Task) => {
         set((state: TasksState) => {
           let currentTasksCount = state.taskedDates.get(date);
-          if (currentTasksCount != null) {
+          if (currentTasksCount != null && currentTasksCount != undefined) {
             return {
               taskedDates: state.taskedDates.set(
                 task.taskDate.dateString,
-                currentTasksCount++
+                currentTasksCount + 1
               ),
             };
           }
@@ -75,7 +75,7 @@ const useTasksStore = create<TasksState>()(
               tasks: splicedTasks,
               taskedDates: state.taskedDates.set(
                 task.taskDate.dateString,
-                (currentTasksCount as number)--
+                (currentTasksCount as number) - 1
               ),
             };
           });
