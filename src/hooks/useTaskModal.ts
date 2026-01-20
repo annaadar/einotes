@@ -16,7 +16,7 @@ export default function useTaskModal(
   const [title, setTitle] = useState(task?.taskTitle);
   const [desc, setDesc] = useState(task?.taskDescription);
   const saveTask = () => {
-    if (title?.trim() && desc?.trim()) {
+    if (title?.trim()) {
       updateTask({
         ...task,
         taskTitle: title,

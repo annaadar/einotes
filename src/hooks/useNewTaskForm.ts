@@ -17,7 +17,7 @@ export default function useNewTaskForm(
   const  addTask  = useTasksStore((state)=>state.addTask);
   const  selectedDate = useDatesStore((state)=>state.selectedDate);
   const handleAdd = () => {
-    if (title.trim() && description.trim()) {
+    if (title.trim()) {
       addTask({
         taskDate: selectedDate,
         taskDescription: description,
