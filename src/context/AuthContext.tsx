@@ -40,15 +40,22 @@ export function AuthProvider({ children }: PropsWithChildren) {
   }, []);
 
   const fbSignIn = async () => {
-    const userCredential = await googleSignIn();
-    setIsSignedIn(true);
-    router.replace(routes.protected);
-    const wasWritten = await writeFsUser();
-    if (!wasWritten) {
-      console.log("user document already existed, retrieving data..");
-      retrieveTasks();
+    setIsLoading(true);
+    try {
+      const userCredential = await googleSignIn();
+      setIsSignedIn(true);
+      router.replace(routes.protected);
+      const wasWritten = await writeFsUser();
+      if (!wasWritten) {
+        console.log("user document already existed, retrieving data..");
+        retrieveTasks();
+      }
+      setIsLoading(false);
+      return userCredential;
+    } catch (error) {
+      setIsLoading(false);
+      throw error;
     }
-    return userCredential;
   };
 
   const fbSignOut = async () => {
